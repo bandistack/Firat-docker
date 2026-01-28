@@ -1,0 +1,26 @@
+services:
+  mongo:
+    image: mongo:6.0
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - app_network
+
+  backend:
+    build:
+      context: ../../Firat-backend/backend
+    env_file: 
+      - ../../Firat-backend/backend/.env
+    ports:
+      - "8000:8000"
+    networks:
+      - app_network
+    depends_on:
+      - mongo
+
+volumes:
+  mongo_data:
+
+networks:
+  app_network:
+    driver: bridge
