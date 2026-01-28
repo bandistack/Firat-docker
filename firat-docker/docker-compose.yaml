@@ -1,12 +1,12 @@
 services:
-  mongo:
+  firatmongo:
     image: mongo:6.0
     volumes:
       - mongo_data:/data/db
     networks:
       - app_network
 
-  backend:
+  firatbackend:
     build:
       context: ../../Firat-backend/backend
     env_file: 
