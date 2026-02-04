@@ -16,7 +16,7 @@ services:
     networks:
       - app_network
     depends_on:
-      - mongo
+      - firatmongo
 
 volumes:
   mongo_data:
